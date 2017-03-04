@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,20 +13,27 @@ import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import in.ac.mjcet.mjconnect.Constants.StringConstants;
 import in.ac.mjcet.mjconnect.R;
 import in.ac.mjcet.mjconnect.Utils.TouchImageView;
 
 public class TimeTableActivity extends AppCompatActivity {
+    private static final String TAG = "TimeTableActivity";
 
     @BindView(R.id.branch_spinner)
     Spinner branchSpinner;
@@ -38,6 +46,12 @@ public class TimeTableActivity extends AppCompatActivity {
 
     @BindView(R.id.image_view)
     TouchImageView imageView;
+
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
+
+    @BindView(R.id.error_text_view)
+    TextView textView;
 
     ArrayAdapter branchAdapter;
     ArrayAdapter secAdapter;
@@ -55,8 +69,6 @@ public class TimeTableActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
         ButterKnife.bind(this);
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference().child("timetables");
@@ -89,12 +101,32 @@ public class TimeTableActivity extends AppCompatActivity {
             sec = "B";
         }
         imageView.resetZoom();
+        progressBar.setVisibility(View.VISIBLE);
+        textView.setVisibility(View.GONE);
         Glide.with(this)
                 .using(new FirebaseImageLoader())
                 .load(storageReference.child(selectedBranch.toUpperCase()+selectedYear+sec+".jpg"))
-                .placeholder(R.drawable.syllabus)
-                .error(R.drawable.timetable)
+                .placeholder(R.drawable.empty)
+                .listener(new RequestListener<StorageReference, GlideDrawable>() {
+                    @Override
+                    public boolean onException(Exception e, StorageReference model, Target<GlideDrawable> target, boolean isFirstResource) {
+                        progressBar.setVisibility(View.GONE);
+                        textView.setVisibility(View.VISIBLE);
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(GlideDrawable resource, StorageReference model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                        progressBar.setVisibility(View.GONE);
+                        return false;
+                    }
+                })
                 .into(imageView);
+    }
+
+    @OnClick(R.id.back_image_button)
+    public void backImageButtonClicked(View view){
+        finish();
     }
 
     @Override

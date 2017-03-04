@@ -36,5 +36,6 @@
     <string name="title_activity_previous_papers">PreviousPapersActivity</string>
     <string name="title_activity_upload">UploadActivity</string>
     <string name="title_activity_custom_gallery">CustomGalleryActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
 
 </resources>

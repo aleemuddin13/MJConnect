@@ -15,6 +15,7 @@ import android.widget.Spinner;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import in.ac.mjcet.mjconnect.Constants.StringConstants;
 import in.ac.mjcet.mjconnect.R;
 
@@ -46,8 +47,7 @@ public class SyllabusActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         ButterKnife.bind(this);
 
 
@@ -71,6 +71,11 @@ public class SyllabusActivity extends AppCompatActivity {
         initializeSpinnerListners();
 
         updateWebView();
+    }
+
+    @OnClick(R.id.back_image_button)
+    public void backImageButtonClicked(View view){
+        finish();
     }
 
     public void updateWebView(){

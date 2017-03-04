@@ -3,7 +3,7 @@
     package="in.ac.mjcet.mjconnect">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -57,6 +57,10 @@
         <activity
             android:name=".Activity.CustomGalleryActivity"
             android:label="@string/title_activity_custom_gallery"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.MenuActivity"
+            android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
