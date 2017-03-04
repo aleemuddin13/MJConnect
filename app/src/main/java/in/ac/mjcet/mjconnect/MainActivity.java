@@ -1,5 +1,7 @@
 package in.ac.mjcet.mjconnect;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +15,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import in.ac.mjcet.mjconnect.Activity.HomeActivity;
+import in.ac.mjcet.mjconnect.Activity.LoginActivity;
+import in.ac.mjcet.mjconnect.Constants.StringConstants;
+import in.ac.mjcet.mjconnect.Utils.SharedPreferencesManager;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -22,6 +29,16 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        SharedPreferences sharedPreferences = SharedPreferencesManager.getInstance(getApplicationContext());
+        String id  = sharedPreferences.getString(StringConstants.ID, null);
+        if(id == null){
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }else{
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        }
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.ac.mjcet.mjconnect.Activity.HomeActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:id="@+id/adsophosButton"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+            </TableRow>
+            <TableRow>
+
+            </TableRow>
+
+            <TableRow>
+                <ImageButton
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:id="@+id/syllabusButton"
+                    android:src="@drawable/syllabus"
+                    android:scaleType="fitCenter"
+                    android:background="@color/colorPrimaryDark"/>
+
+                <!--<View-->
+                <!--android:layout_width="1dp"-->
+                <!--android:layout_height="200dp"-->
+                <!--android:layout_weight="0"-->
+                <!--android:background="@android:color/darker_gray"></View>-->
+
+                <!--</View>-->
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/timetable"
+                    android:scaleType="fitCenter"
+                    android:background="@color/colorPrimary"
+                    android:id="@+id/timetableButton"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:cropToPadding="false" />
+
+            </TableRow>
+            <TableRow>
+                <!--<View-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@android:color/darker_gray">-->
+
+                <!--</View>-->
+
+            </TableRow>
+            <TableRow>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:id="@+id/previouspaperButton"
+                    android:src="@drawable/previous"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitCenter"/>
+
+                <!--<View-->
+                <!--android:layout_width="1dp"-->
+                <!--android:layout_height="200dp"-->
+                <!--android:layout_weight="0"-->
+                <!--android:background="@android:color/darker_gray"></View>-->
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:id="@+id/QRButton"
+                    android:src="@drawable/qr"
+                    android:background="@color/colorAccent"
+                    android:scaleType="fitCenter"/>
+            </TableRow>
+            <TableRow>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:id="@+id/aboutButton"
+                    android:src="@drawable/about"
+                    android:scaleType="fitCenter"
+                    android:tint="@color/colorAccent"
+                    android:background="@color/colorPrimary"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:id="@+id/uploadButton"
+                    android:src="@drawable/bug"
+                    android:background="@color/colorPrimaryDark"
+                    android:scaleType="fitCenter"/>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
