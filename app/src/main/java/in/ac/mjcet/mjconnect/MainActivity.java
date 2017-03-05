@@ -17,6 +17,7 @@ import android.view.MenuItem;
 
 import in.ac.mjcet.mjconnect.Activity.HomeActivity;
 import in.ac.mjcet.mjconnect.Activity.LoginActivity;
+import in.ac.mjcet.mjconnect.Activity.MenuActivity;
 import in.ac.mjcet.mjconnect.Constants.StringConstants;
 import in.ac.mjcet.mjconnect.Utils.SharedPreferencesManager;
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }else{
-            startActivity(new Intent(this, HomeActivity.class));
+            startActivity(new Intent(this, MenuActivity.class));
             finish();
         }
 

@@ -1,12 +1,16 @@
 package in.ac.mjcet.mjconnect.Activity;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.camera2.params.Face;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -31,6 +35,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONObject;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import in.ac.mjcet.mjconnect.Constants.StringConstants;
 import in.ac.mjcet.mjconnect.Models.User;
 import in.ac.mjcet.mjconnect.R;
@@ -54,9 +60,11 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
+        ButterKnife.bind(this);
+
         mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
-        Profile profile = Profile.getCurrentProfile();
+        final Profile profile = Profile.getCurrentProfile();
         Log.d(TAG, "upat k "+profile);
         profileChanged(profile);
 
@@ -73,6 +81,10 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                ProgressDialog progressdialog = new ProgressDialog(LoginActivity.this);
+                progressdialog.setMessage("Please Wait....");
+                progressdialog.setCancelable(false);
+                progressdialog.show();
 
             }
 
@@ -107,7 +119,8 @@ public class LoginActivity extends AppCompatActivity {
 
             SharedPreferences sharedPreferences = SharedPreferencesManager.getInstance(getApplicationContext());
             sharedPreferences.edit().putString(StringConstants.ID,user.getId()).apply();
-            startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+            startActivity(new Intent(LoginActivity.this,MenuActivity.class));
+            finish();
         }
 
         @Override
@@ -143,5 +156,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int arg0, int arg1, Intent arg2) {
         super.onActivityResult(arg0, arg1, arg2);
         callbackManager.onActivityResult(arg0, arg1, arg2);
+    }
+
+    @OnClick(R.id.guest_button)
+    public void guestButtonClicked(View view){
+        SharedPreferences sharedPreferences = SharedPreferencesManager.getInstance(getApplicationContext());
+        sharedPreferences.edit().putString(StringConstants.ID, "0").apply();
+        startActivity(new Intent(LoginActivity.this,MenuActivity.class));
+        finish();
+
     }
 }

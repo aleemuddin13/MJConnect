@@ -22,25 +22,5 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-//    @OnClick(R.id.syllabusButton)
-//    public void syllabusButtonClicked(ImageButton button){
-//        startActivity(new Intent(this, SyllabusActivity.class));
-//    }
-//    @OnClick(R.id.timetableButton)
-//    public void timeTableButtonClicked(ImageButton button){
-//        startActivity(new Intent(this, TimeTableActivity.class));
-//    }
-//    @OnClick(R.id.aboutButton)
-//    public void aboutButtonClicked(ImageButton button){
-//        startActivity(new Intent(this, AboutActivity.class));
-//    }
-//    @OnClick(R.id.previouspaperButton)
-//    public void previousPaperButtonClicked(ImageButton button){
-//        startActivity(new Intent(this, PreviousPapersActivity.class));
-//    }
-//
-//    @OnClick(R.id.uploadButton)
-//    public void uploadButtonClicked(ImageButton button){
-//        startActivity(new Intent(this, UploadActivity.class));
-//    }
+
 }

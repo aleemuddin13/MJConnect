@@ -32,8 +32,9 @@
                     android:layout_height="26dp"
                     android:background="@android:color/transparent"
                     android:src="@drawable/menu_box"
-                    android:tint="@color/colorAccent"
-                    android:scaleType="fitCenter"/>
+                    android:tint="@color/colorPrimaryLight"
+                    android:scaleType="fitCenter"
+                    android:transitionName="menu"/>
                 <Spinner
                     android:layout_gravity="center_vertical"
                     android:id="@+id/branch_spinner"
