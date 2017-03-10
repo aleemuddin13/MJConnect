@@ -37,5 +37,8 @@
     <string name="title_activity_upload">UploadActivity</string>
     <string name="title_activity_custom_gallery">CustomGalleryActivity</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_qr">QRActivity</string>
+    <string name="title_activity_events">EventsActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>

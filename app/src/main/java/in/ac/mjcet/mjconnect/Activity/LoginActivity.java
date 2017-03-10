@@ -1,22 +1,14 @@
 package in.ac.mjcet.mjconnect.Activity;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.hardware.camera2.params.Face;
 import android.net.Uri;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -33,15 +25,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import org.json.JSONObject;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import in.ac.mjcet.mjconnect.Constants.StringConstants;
 import in.ac.mjcet.mjconnect.Models.User;
 import in.ac.mjcet.mjconnect.R;
 import in.ac.mjcet.mjconnect.Utils.SharedPreferencesManager;
-import in.ac.mjcet.mjconnect.Utils.VolleyManager;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";

@@ -1,14 +1,9 @@
 package in.ac.mjcet.mjconnect.Activity;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.support.v7.app.AppCompatActivity;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import in.ac.mjcet.mjconnect.R;
 
 public class HomeActivity extends AppCompatActivity {
